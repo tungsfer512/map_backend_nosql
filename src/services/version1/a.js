@@ -1,4 +1,3 @@
-
 let handleAddStateLog = (newState) => {
     return new Promise(async (resolve, reject) => {
         try {
