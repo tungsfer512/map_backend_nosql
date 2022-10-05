@@ -1,3 +1,5 @@
+import BinStateLog from '../../models/version1/BinStateLog';
+
 let handleAddStateLog = (newState) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -74,3 +76,11 @@ let handleUpdateStateLogById = (id) => {
         }
     });
 };
+
+
+export default {
+    handleAddStateLog, 
+    handleGetAllStateLog, 
+    handleGetStateLogById, 
+    handleUpdateStateLogById
+}

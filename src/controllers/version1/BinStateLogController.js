@@ -1,3 +1,5 @@
+import binStateLogService from '../../services/version1/BinStateLogService';
+
 let addStateLog = async (req, res, next) => {
     let newState = {
         binId: req.body.binId,
@@ -17,7 +19,7 @@ let addStateLog = async (req, res, next) => {
         });
     }
 
-    let newStateData = await binService.handleAddStateLog(newState);
+    let newStateData = await binStateLogService.handleAddStateLog(newState);
 
     if (newStateData.errCode !== 0) {
         return res.status(500).json({
@@ -34,7 +36,7 @@ let addStateLog = async (req, res, next) => {
 };
 
 let getAllStateLog = async (req, res, next) => {
-    let stateLogsData = await binService.handleGetAllStateLog();
+    let stateLogsData = await binStateLogService.handleGetAllStateLog();
 
     if (stateLogsData.errCode !== 0) {
         return res.status(500).json({
@@ -53,7 +55,7 @@ let getAllStateLog = async (req, res, next) => {
 let getStateLogById = async (req, res, next) => {
     let id = req.params.id;
 
-    let stateLogData = await binService.handleGetStateLogById(id);
+    let stateLogData = await binStateLogService.handleGetStateLogById(id);
 
     if (stateLogData.errCode !== 0) {
         return res.status(500).json({
@@ -72,7 +74,7 @@ let getStateLogById = async (req, res, next) => {
 let updateStateLogById = async (req, res, next) => {
     let id = req.params.id;
 
-    let stateLogData = await binService.handleUpdateStateLogById(id);
+    let stateLogData = await binStateLogService.handleUpdateStateLogById(id);
 
     if (stateLogData.errCode !== 0) {
         return res.status(500).json({
@@ -87,4 +89,11 @@ let updateStateLogById = async (req, res, next) => {
         stateBefore: stateLogData.stateBefore,
         stateAfter: stateLogData.stateAfter
     });
+};
+
+export default {
+    addStateLog,
+    getAllStateLog,
+    getStateLogById,
+    updateStateLogById
 };

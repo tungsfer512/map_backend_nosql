@@ -1,4 +1,6 @@
 import express from 'express';
+
+import binStateLogRouter from './binStateLog';
 import binRouter from './bin';
 import userRouter from './user';
 import vehicleRouter from './vehicle';
@@ -6,6 +8,7 @@ import vehicleRouter from './vehicle';
 let version1Router = express.Router();
 
 version1Router.use('/users', userRouter);
+version1Router.use('/bins/states/', binStateLogRouter);
 version1Router.use('/bins', binRouter);
 version1Router.use('/vehicles', vehicleRouter);
 
