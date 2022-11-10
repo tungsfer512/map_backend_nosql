@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/map_dev', {
+        await mongoose.connect('mongodb://localhost:27017/map_ws_dev', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -12,4 +12,4 @@ const connectDB = async () => {
     }
 };
 
-export default connectDB;
+module.exports = connectDB;

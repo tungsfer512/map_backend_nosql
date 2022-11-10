@@ -1,5 +1,5 @@
 {
-    "name": "map_backend_nosql",
+    "name": "map_ws_exp",
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
@@ -7,23 +7,30 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon --inspect --exec babel-node src/server.js",
         "format": "prettier --single-quote --trailing-comma none --tab-width 4 --write \"**/**/*.{js,json}\"",
-        "dev": "npm run format && npm start"
+        "dev": "npm run format && npm start",
+        "setupdb": "node src/config/setupDB.js"
     },
     "lint-staged": {
-        "src/**/*.{js,json,scss}": "npm run format"
+        "src/**/*.{js,json}": "npm run format"
     },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
     },
-    "author": "",
+    "author": "DTATeam",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.1.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
         "dotenv": "^16.0.1",
         "express": "^4.18.1",
+        "http": "^0.0.1-security",
+        "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.5.2",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "ws": "^8.10.0"
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
@@ -33,7 +40,6 @@
         "@types/uuid": "^8.3.4",
         "husky": "^8.0.1",
         "lint-staged": "^13.0.3",
-        "morgan": "^1.10.0",
         "nodemon": "^2.0.19",
         "prettier": "^2.7.1"
     }

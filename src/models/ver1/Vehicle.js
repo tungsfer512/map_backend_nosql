@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
@@ -6,20 +6,23 @@ const ObjectId = Schema.ObjectId;
 const Vehicle = new Schema(
     {
         id: ObjectId,
-        code: String,
-        brand: String,
-        name: String,
-        licensePlate: String,
         latitude: Number,
         longitude: Number,
-        emptyWeight: Number,
+        heigth: Number,
         weight: Number,
         maxWeight: Number,
-        height: Number,
+        altitude: Number,
+        emptyWeight: Number,
         width: Number,
         length: Number,
         speed: Number,
         maxSpeed: Number,
+        angle: Number,
+        odometer: Number,
+        code: String,
+        brand: String,
+        name: String,
+        licensePlate: String,
         image: String,
         status: String
     },
@@ -28,4 +31,4 @@ const Vehicle = new Schema(
     }
 );
 
-export default mongoose.model('Vehicle', Vehicle);
+module.exports = mongoose.model('Vehicle', Vehicle);
